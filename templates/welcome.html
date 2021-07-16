@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}Task Tracking Dashboard{% endblock %}
+
+{% block body %}
+<div class="login-form">
+  <br>
+<h3>Login</h3>
+<br>
+<form action="/api/auth" method="POST">
+  <div class="form-group row">
+    <label for="email" class="col-sm-2 col-form-label">Email address:</label>
+    <div class="col-sm-10">
+    <input type="email" class="form-group" name="email" id="emailInput" placeholder="janedoe@gmail.com" required>
+  </div>
+  </div>
+  <div class="form-group row">
+    <label for="password" class="col-sm-2 col-form-label">Password:</label>
+    <div class="col-sm-10">
+    <input type="password" class="form-group" name="password" id="password" placeholder="Password" required>
+  </div>
+  </div>
+  <button type="submit" class="btn btn-dark">Submit</button>
+</form>
+<br>
+<br>
+</div>
+
+
+<!--users table -->
+<div class="register-form">
+<form  action="/registration" method="POST">
+  <h3>New User</h3>
+  <br>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">First Name:</label>
+    <input type="text" name="fname" placeholder="Jane" required><br>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Last Name:</label>
+    <input type="text" name="lname" placeholder="Doe" required><br>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Email:</label>
+    <input type="text" name="email" id="emailInput" placeholder="janedoe@gmail.com" required><br>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Password:</label>
+    <input type="password" name="password"  class="form-group" id="password" placeholder="Password" required><br>
+  </div>
+   <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Verify:</label>
+    <input type="password" name="passwordConfirmation"  class="form-group" id="passwordConfirmation" placeholder="Verify password" required><br>
+  </div>
+  <input type="submit" class="btn btn-dark">
+</form>
+</div>
+{% endblock %}

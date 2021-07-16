@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>
+	{%block title %} Users Dashboard {% endblock %}
+	</title>
+
+<!-- Bootstrap link -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"/>
+<link rel="stylesheet" href="/static/styles.css"/> 
+
+</head> 
+
+<body>
+  <div id="bg">&nbsp;</div>
+
+    <header>
+      <!--Navbar-->
+      <nav>
+        <div class="welcome-color">
+          <a href="/"><strong>Welcome Page</strong></a>
+         {% if 'user_id' in session %}
+          <div>
+            <ul class="header-ul">
+              <li>
+                <a href="/users_dashboard/{{session['user_id']}}">Dashboard</a>
+              </li>
+              <li>
+                <a href="/select_project?next_project=project">Projects</a>
+              </li>
+              <li>
+                <a href="/attachments">Attachments</a>
+              </li>
+              <li>
+                <a href="/logout">Logout</a>
+              </li>
+          {% endif %}
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="banner-text">
+        <h1><strong>GITAM University Mishra's Lab</strong></h1>
+        <br>
+        <h5 class="banner-small"><strong>Task Tracking Dashboard</strong></h5>
+      </div>
+    </header>
+<div class="around-body">
+{% block body %}
+
+{% endblock %}
+</div>
+
+<script src="http://code.jquery.com/jquery.js"></script>
+
+</body>
+</html>

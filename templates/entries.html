@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Entry's Page{% endblock %}
+
+{% block body %}
+
+<div>
+	<h3>{{ entry.title }}</h3>
+	<br>
+
+	<h5> {{ entry.time_stamp }}</h5>
+	<br>
+</div>
+<div class="container">
+	<div class="row">
+	<div class="col-5">
+		<img src="{{ entry.attachment }}">
+		<br>
+		<br>
+	</div>
+	<div class="col-7">
+		{% if entry.entry %}
+			{{ entry.entry }}
+		{% endif %}
+	</div>
+</div>
+</div>
+
+{% endblock %}

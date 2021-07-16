@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+
+{% block body %}
+<div>
+	<h3>Exploration and exploitation of Weak Interactions in Biological systems.</h3>
+	<p>The research in our lab is focused upon weak and transient interactions in biological systems. 
+		We use an interdisciplinary approach to discover weak and transient interactions in normal and diseased conditions. 
+		Recently discovered chemical biology tools entail the discovery of chemical entities able to modulate pathways and interactions in biological processes. Such work can lead to an increase in biological understanding and the identification of novel targets for chemical intervention. Appropriate validation of such targets in advanced model systems, including animals, along with the pharmaceutical development of chemical series, can in turn provide leads for downstream drug discovery efforts.</p>
+</div>
+
+<div>
+<div>
+	<br>
+	<br>
+	<a href="/create_project" type="button" class="btn btn-dark">Create a Project</a>
+	<br>
+	<br>
+</div>
+</div>
+<div>
+	<br>
+<a href="/select_project?next_project=add_task" type="button" class="btn btn-dark">Add new task to an existing Project</a>
+	<br>
+	<br>
+</div>
+<div>
+	<br>
+<a href="/select_project?next_project=add_entry" type="button" class="btn btn-dark">Add an entry to a Project</a>
+	<br>
+	<br>
+</div>
+	<div>
+		<form id="addNoteForm" action="/add_note" method="POST" enctype="multipart/form-data">
+			<h3>Add a note</h3>
+			<textarea type="text" name="note" id="note" placeholder="Type a note here..."></textarea>
+			<br>
+			<br>
+			<input type="submit" class="btn btn-dark">
+		</form>   
+	</div>
+
+	<div class="notes-section">
+	<br>
+		<p id="note-p">Notes</p>
+		<div id="allTheNotes">
+			{% if notes %}
+				{% for note in notes %}
+				<p>{{note.note}}</p>
+				{% endfor %}
+			{% endif %}
+		</div>
+	</div>
+
+{% endblock %}

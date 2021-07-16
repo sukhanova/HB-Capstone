@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<h3>Project related attachments</h3>
+<br>
+<br>
+
+<div class="container">
+  <div class="row justify-content-start">
+  	{% if attachments: %}
+	{% for attachment in attachments: %}
+    <div class="col-4">
+    	<img src="{{ attachment }}">
+	</div>
+	{% endfor %}
+	{% endif %}
+  </div>
+</div>
+   
+
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Tasks Page{% endblock %}
+
+{% block body %}
+
+<h3>{{ task.description }}</h3>
+<div class="container">
+	<p>View Projects</p>
+	{% if task.projects %}
+		<ul>
+			{% for project in task.projects %}
+			<li><a href="/project/{{project.project_id}}">{{project.project_name}}</a></li>
+			{% endfor %}
+		</ul>
+	{% endif %}
+</div>
+
+{% endblock %}
