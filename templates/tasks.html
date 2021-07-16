@@ -4,7 +4,8 @@
 
 {% block body %}
 
-<h3>{{ task.description }}</h3>
+<!-- <h3>{{ task.description }}</h3>
+<h4>{{ task.status }}</h4>
 <div class="container">
 	<p>View Projects</p>
 	{% if task.projects %}
@@ -14,6 +15,28 @@
 			{% endfor %}
 		</ul>
 	{% endif %}
-</div>
+</div> -->
 
+<div>
+    <table>
+        <thead>
+            <tr>Description</tr>
+            <tr>Status</tr>
+            <tr>View project</tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ task.description }}</td>
+                <td><button>{{ task.status }}</button></td>
+                {% if task.projects %}
+                <td>
+                    {% for project in task.projects %}
+                    <a href="/project/{{project.project_id}}">{{project.project_name}}</a>
+                    {% endfor %} 
+                </td>
+                {% endif %}
+            </tr>
+        </tbody>
+    </table>
+</div>
 {% endblock %}

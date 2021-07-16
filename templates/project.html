@@ -14,7 +14,7 @@
 <div class="container">
 	{% if project.tasks %}
 		{% for task in project.tasks %}
-		<a href="/tasks/{{task.task_id}}" type="button" class="btn btn-secondary">{{task.description}}</a>
+		<a href="/tasks/{{task.task_id}}" type="button" class="btn btn-secondary">{{task.description}} : {{task.status}}</a>
 		<br>
 		{% endfor %}
 	{% endif %}

@@ -33,7 +33,7 @@
 
 #### First clone the repository:
   ```
-  $ git clone 
+  $ git clone https://github.com/sukhanova/HB-Capstone
   ```
 
 #### Set up virtual environment:
