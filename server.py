@@ -120,7 +120,7 @@ def create_project():
 		return render_template("create_project.html")
 
 	if request.method == "GET": 
-										
+								
 		user_id = session["user_id"]
 
 		return redirect(f"/create_project/{project_id}")
@@ -136,14 +136,13 @@ def get_project(project_id):
 	description = project.description
 	entries = project.entries
 	user_id = project.user_id
-	projects = []
-	
-	
+	# projects = []
+
 	if user_id: 
-		for project in projects:
-			project_id = Project.query.get(project_id)
-			name = project.project_name
-			projects.append(name)
+		# for project in projects:
+		# 	project_id = Project.query.get(project_id)
+		# 	name = project.project_name
+		# 	projects.append(name)
 
 		return render_template("project.html",
 							project=project,
@@ -221,8 +220,39 @@ def get_task(task_id):
 
 	return render_template("tasks.html",
 							task=task)
+ 
+ 
+@app.route("/update_task/<int:task_id>", methods=["GET", "POST"])
+def update_task(task_id):
+    """Update task"""
+    
+    task = Task.query.get(task_id)
+    print(task)
+    if request.method == "POST":
+        print(request.form)
+        print()
+        print()
+        print('*'*10)
+        user_id = session["user_id"]
+        task.description = request.form.get("description")
+        task.status = request.form.get("status")
+        db.session.commit()
+        # return render_template("update_task.html", task=task)
+        return redirect(f"/tasks/{task_id}")
+    
+    else:
+        # user_id = session["user_id"]
+        # task.description = request.args.get["description"]
+        # task.status = request.args.get["status"]
+        # db.session.commit()
+        return render_template("update_task.html", task=task)
+    # else:
+    #     return render_template("update_task.html", task=task)
+    
+    
 
-
+    
+    
 @app.route("/add_entry/<int:project_id>", methods=["GET", "POST"])
 def add_entry(project_id):
 	"""User can add an entry to their project."""

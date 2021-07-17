@@ -15,6 +15,9 @@
 	{% if project.tasks %}
 		{% for task in project.tasks %}
 		<a href="/tasks/{{task.task_id}}" type="button" class="btn btn-secondary">{{task.description}} : {{task.status}}</a>
+        <form action="/update_task/{{task.task_id}}" method="GET">
+            <button data-source="{{task.task_id}}" type="submit">Update</button>
+        </form>
 		<br>
 		{% endfor %}
 	{% endif %}
