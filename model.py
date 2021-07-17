@@ -44,7 +44,7 @@ class Project(db.Model):
 	project_id = db.Column(db.Integer, primary_key=True)
 	user_id = db.Column(db.Integer, db.ForeignKey("users.user_id"))
 	project_name = db.Column(db.String(100), nullable=False)
-	description = db.Column(db.String(160), nullable=True)
+	description = db.Column(db.String(255), nullable=True)
 
 	entries = db.relationship("Entry", backref="trips")
 	tasks = db.relationship("Task", secondary="tasks_projects", backref="projects")
@@ -62,7 +62,7 @@ class Task(db.Model):
 
 	task_id = db.Column(db.Integer, primary_key=True)
 	user_id = db.Column(db.Integer, db.ForeignKey("users.user_id"))
-	description = db.Column(db.String(100), nullable=True)
+	description = db.Column(db.String(255), nullable=True)
 	status = db.Column(db.String(100), nullable=True)
 
 	def __repr__(self):

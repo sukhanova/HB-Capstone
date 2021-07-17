@@ -137,6 +137,7 @@ def get_project(project_id):
 	entries = project.entries
 	user_id = project.user_id
 	# projects = []
+	
 
 	if user_id: 
 		# for project in projects:
@@ -201,7 +202,7 @@ def add_task(project_id):
 
 		task_id = task.task_id
 
-		return redirect(f"/users_dashboard/{user_id}")
+		return redirect(f"/tasks/{task_id}")
 
 	else:
 		return render_template("create_task.html",
