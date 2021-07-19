@@ -4,12 +4,22 @@ from flask import Flask, render_template, request, flash, redirect, session, jso
 from datetime import datetime
 import time
 from model import User, Entry, Project, Task, Note, connect_to_db, db
+import os
 
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+from cloudinary.uploader import upload
 
 app = Flask(__name__)
 
-app.secret_key = "dev"
+app.config.from_pyfile('config.py')
 
+cloudinary.config(
+  cloud_name = app.config['CLOUDINARY_CLOUD_NAME'],  
+  api_key = app.config['CLOUDINARY_API_KEY'],  
+  api_secret = app.config['CLOUDINARY_API_SECRET']  
+)
 
 app.jinja_env.undefined = StrictUndefined
 app.jinja_env.auto_reload = True
@@ -30,7 +40,6 @@ def registration():
 	"""User registration/create a profile page"""
 
 	if request.method == "POST":
-
 		fname = request.form["fname"]
 		lname = request.form["lname"]
 		email = request.form["email"]
@@ -52,6 +61,7 @@ def registration():
 		return redirect(f"/users_dashboard/{user_id}")
 	else:
 		return redirect("/")
+
 
 # ------- Auth Routes -------:
 
@@ -122,7 +132,6 @@ def create_project():
 	if request.method == "GET": 
 								
 		user_id = session["user_id"]
-
 		return redirect(f"/create_project/{project_id}")
 
 
@@ -158,9 +167,9 @@ def attachments():
 	user_id = session["user_id"]
 	projects = Project.query.filter_by(user_id=user_id).all()
 	entries = Entry.query.filter_by(user_id=user_id).all()
-	attachments = map(lambda entry: entry.attachment, entries) 
+	attachments = map(lambda entry: entry.attachment, entries)
+ 
 	if user_id:
-
 		return render_template("attachments.html",
 								attachments=attachments)
 	else:
@@ -169,7 +178,6 @@ def attachments():
 
 @app.route("/select_project")
 def select_project():
-
 	user_id = session["user_id"]
 	projects = Project.query.filter_by(user_id=user_id).all()
 
@@ -213,8 +221,7 @@ def add_task(project_id):
 def get_task(task_id):
 	"""Search for a task from a project."""
 
-	task = Task.query.get(task_id) 
-
+	task = Task.query.get(task_id)
 	user_id = session["user_id"]
 	if task.user_id != session["user_id"]:
 		return redirect("/")
@@ -228,12 +235,7 @@ def update_task(task_id):
     """Update task"""
     
     task = Task.query.get(task_id)
-    print(task)
     if request.method == "POST":
-        print(request.form)
-        print()
-        print()
-        print('*'*10)
         user_id = session["user_id"]
         task.description = request.form.get("description")
         task.status = request.form.get("status")
@@ -242,17 +244,8 @@ def update_task(task_id):
         return redirect(f"/tasks/{task_id}")
     
     else:
-        # user_id = session["user_id"]
-        # task.description = request.args.get["description"]
-        # task.status = request.args.get["status"]
-        # db.session.commit()
         return render_template("update_task.html", task=task)
-    # else:
-    #     return render_template("update_task.html", task=task)
-    
-    
-
-    
+  
     
 @app.route("/add_entry/<int:project_id>", methods=["GET", "POST"])
 def add_entry(project_id):
@@ -284,6 +277,7 @@ def add_entry(project_id):
 								project_id=project_id,
 								user_id=user_id)
 
+
 @app.route("/entry/<int:entry_id>")
 def get_entry(entry_id):
 	"""Search for entries in a project."""
@@ -304,11 +298,8 @@ def add_note():
 	user_id = session["user_id"]
 
 	if request.method == "POST":
-	
 		note = request.form["note"]
-
 		new_note = Note(note=note, user_id=user_id)
-
 
 		db.session.add(new_note)
 		db.session.commit()
@@ -317,6 +308,11 @@ def add_note():
 	else:
 		return redirect(f"/")
 
+
 if __name__ == "__main__":
     connect_to_db(app)
+    app.config['CLOUDINARY_CLOUD_NAME'] = True
+    app.config['CLOUDINARY_API_KEY'] = True
+    app.config['CLOUDINARY_API_SECRET'] = True
+    
     app.run(host='0.0.0.0', debug=True)

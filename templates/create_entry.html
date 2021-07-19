@@ -3,18 +3,17 @@
 {% block title %}Entry Creation{% endblock %}
 
 {% block body %}
-
 <div id="forms-center">
 	<form  action="/add_entry/{{project_id}}" method="POST" enctype="multipart/form-data">
 		<h3>Create Entry</h3><br>
 		<br>
 		<div class="form-group row">
 			<label class="col-sm-2 col-form-label">Title</label>
-			<input type="text" name="title" placeholder="Title">
+			<input type="text" name="title" placeholder="Title" required>
 		</div>
 		<div class="form-group row">
 			<label class="col-sm-2 col-form-label">Entry</label>
-			<textarea rows="4" cols="50" name="entry" placeholder="Entry"></textarea>
+			<textarea rows="4" cols="50" name="entry" placeholder="Entry" required></textarea>
 		</div>
 		<div class="form-group row">
 			<label class="col-sm-2 col-form-label">Attachment</label>

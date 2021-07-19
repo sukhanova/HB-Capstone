@@ -2,7 +2,6 @@
 
 {% block title %}Dashboard{% endblock %}
 
-
 {% block body %}
 <div>
 	<h3>Exploration and exploitation of Weak Interactions in Biological systems.</h3>
@@ -37,7 +36,7 @@
 	<div>
 		<form id="addNoteForm" action="/add_note" method="POST" enctype="multipart/form-data">
 			<h3>Add a note</h3>
-			<textarea type="text" name="note" id="note" placeholder="Type a note here..."></textarea>
+			<textarea type="text" name="note" id="note" placeholder="Type a note here..." required></textarea>
 			<br>
 			<br>
 			<input type="submit" class="btn btn-dark">
@@ -46,8 +45,8 @@
 
 	<div class="notes-section">
 	<br>
-		<p id="note-p">Notes</p>
-		<div id="allTheNotes">
+		<p id="note-p">User Notes</p>
+		<div id="userNotes">
 			{% if notes %}
 				{% for note in notes %}
 				<p>{{note.note}}</p>
@@ -55,5 +54,4 @@
 			{% endif %}
 		</div>
 	</div>
-
 {% endblock %}

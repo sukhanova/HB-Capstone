@@ -3,22 +3,20 @@
 {% block title %}Add Project{% endblock %}
 
 {% block body %}
-
 <div class="forms-center">
 	<form  action="/create_project" method="POST">
 		<h3>Create New Project</h3><br>
 		<br>
 		<div class="form-group row">
 			<label class="col-sm-2 col-form-label">Project Title</label>
-			<input type="text" name="project_name" placeholder="Project title"><br>
+			<input type="text" name="project_name" placeholder="Project title" required><br>
 		</div>
 		<div class="form-group row">
 			<label class="col-sm-2 col-form-label">Description</label>
-			<textarea rows="4" cols="50" name="description" placeholder="Project description"></textarea><br>
+			<textarea rows="4" cols="50" name="description" placeholder="Project description" required></textarea><br>
 		</div>
 		<br>
 		<input type="submit" class="btn btn-dark">
 	</form>
 </div>
-
 {% endblock %}

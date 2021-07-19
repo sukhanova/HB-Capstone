@@ -3,7 +3,6 @@
 {% block title %}Projects Page{% endblock %}
 
 {% block body %}
-
 <br>
 <div>
 	<h3>{{ name }}</h3>
@@ -14,15 +13,21 @@
 <div class="container">
 	{% if project.tasks %}
 		{% for task in project.tasks %}
-		<a href="/tasks/{{task.task_id}}" type="button" class="btn btn-secondary">{{task.description}} : {{task.status}}</a>
+		<a href="/tasks/{{task.task_id}}" type="button" class="btn btn-light">{{task.description}} : {{task.status}}</a>
         <form action="/update_task/{{task.task_id}}" method="GET">
 			{% if task.status != "Complete" %}
-            <button data-source="{{task.task_id}}" type="submit">Update</button>
+            <button class="btn btn-info" data-source="{{task.task_id}}" type="submit">Update</button>
 			{% endif%}
         </form>
 		<br>
 		{% endfor %}
 	{% endif %}
+</div>
+<div>
+	<br>
+<a href="/select_project?next_project=add_task" type="button" class="btn btn-primary">Add new task</a>
+	<br>
+	<br>
 </div>
 
 <div class="container">
@@ -30,16 +35,10 @@
 	
 	<br>
 	{% for entry in project.entries %}
-	<a href="/entry/{{entry.entry_id}}" type="button" class="btn btn-dark">{{entry.title}}</a>
+	<a href="/entry/{{entry.entry_id}}" type="button" class="btn btn-success">{{entry.title}}</a>
 	<br>
 	<br>
 	{% endfor %}
 	{% endif %}
-</div>
-<div>
-	<br>
-<a href="/select_project?next_project=add_task" type="button" class="btn btn-dark">Add new task</a>
-	<br>
-	<br>
 </div>
 {% endblock %}
