@@ -59,7 +59,7 @@
 		<p id="note-p">Lab Notes</p>
 			<div id="userNotes">
 				{% if notes %}
-					{% for note in notes %}
+					{% for note in notes|reverse %}
 					<p>{{note.note}}</p>
 					<form action="/delete_note/{{note.note_id}}" method="post">
 						<button data-source="{{note.note_id}}" type="submit" class="btn btn-outline-secondary btn-sm remove"><i class="fa fa-trash fa-1" aria-hidden="true">Remove</i></button>

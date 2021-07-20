@@ -26,7 +26,7 @@
         <tbody>
             <tr>
                 <td>{{ task.description }}</td>
-                <td><button>{{ task.status }}</button></td>
+                <td><button class="btn btn-outline-secondary btn-sm"><i class="fa fa-trash fa-1" aria-hidden="true">{{ task.status }}</i></button></td>
                 {% if task.projects %}
                 <td>
                     {% for project in task.projects %}

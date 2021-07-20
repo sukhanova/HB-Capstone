@@ -165,7 +165,7 @@ def get_project(project_id):
 def attachments():
 	 
 	user_id = session["user_id"]
-	projects = Project.query.filter_by(user_id=user_id).all()
+	projects = Project.query.filter_by(user_id=user_id).order_by(Project.project_name.asc()).all()
 	entries = Entry.query.filter_by(user_id=user_id).all()
 	attachments = map(lambda entry: entry.attachment, entries)
  
@@ -179,7 +179,7 @@ def attachments():
 @app.route("/select_project")
 def select_project():
 	user_id = session["user_id"]
-	projects = Project.query.filter_by(user_id=user_id).all()
+	projects = Project.query.filter_by(user_id=user_id).order_by(Project.project_name.asc()).all()
 
 	next_project = request.args.get("next_project")
 
