@@ -6,7 +6,7 @@ import time
 from model import User, Entry, Project, Task, Note, connect_to_db, db
 import os
 
-import cloudinary
+import cloudinary as Cloud
 import cloudinary.uploader
 import cloudinary.api
 from cloudinary.uploader import upload
@@ -18,8 +18,8 @@ app.config.from_pyfile('config.py')
 cloudinary.config(
   cloud_name = app.config['CLOUDINARY_CLOUD_NAME'],  
   api_key = app.config['CLOUDINARY_API_KEY'],  
-  api_secret = app.config['CLOUDINARY_API_SECRET']  
-)
+  api_secret = app.config['CLOUDINARY_API_SECRET']
+  )
 
 app.jinja_env.undefined = StrictUndefined
 app.jinja_env.auto_reload = True
@@ -309,6 +309,19 @@ def add_note():
 		return redirect(f"/")
 
 
+@app.route("/delete_note/<int:note_id>", methods=["POST"])
+def delete_note(note_id):
+    """Delete note from dashboard"""
+    if request.method == "POST":
+        user_id = session["user_id"]
+        note_to_delete = Note.query.get(note_id)
+        db.session.delete(note_to_delete)
+        db.session.commit()
+        return redirect(f"/users_dashboard/{user_id}")
+    else:
+        redirect(f"/users_dashboard/{user_id}")
+
+		
 if __name__ == "__main__":
     connect_to_db(app)
     app.config['CLOUDINARY_CLOUD_NAME'] = True

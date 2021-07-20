@@ -38,12 +38,11 @@
 			<h3>Add a note</h3>
 			<textarea type="text" name="note" id="note" placeholder="Type a note here..." required></textarea>
 			<br>
-			<br>
 			<input type="submit" class="btn btn-dark">
 		</form>   
 	</div>
 
-	<div class="notes-section">
+	<!-- <div class="notes-section">
 	<br>
 		<p id="note-p">User Notes</p>
 		<div id="userNotes">
@@ -53,5 +52,20 @@
 				{% endfor %}
 			{% endif %}
 		</div>
+	</div> -->
+
+	<div class="container notes-section">
+		<br>
+		<p id="note-p">Lab Notes</p>
+			<div id="userNotes">
+				{% if notes %}
+					{% for note in notes %}
+					<p>{{note.note}}</p>
+					<form action="/delete_note/{{note.note_id}}" method="post">
+						<button data-source="{{note.note_id}}" type="submit" class="btn btn-outline-secondary btn-sm remove"><i class="fa fa-trash fa-1" aria-hidden="true">Remove</i></button>
+					</form>	
+					{% endfor %}	
+				{% endif %}
+			</div>
 	</div>
 {% endblock %}

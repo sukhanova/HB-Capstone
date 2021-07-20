@@ -16,10 +16,9 @@
 		<a href="/tasks/{{task.task_id}}" type="button" class="btn btn-light">{{task.description}} : {{task.status}}</a>
         <form action="/update_task/{{task.task_id}}" method="GET">
 			{% if task.status != "Complete" %}
-            <button class="btn btn-info" data-source="{{task.task_id}}" type="submit">Update</button>
+            <button class="btn btn-outline-secondary btn-sm update btn" data-source="{{task.task_id}}" type="submit"><i class="fa fa-trash fa-1" aria-hidden="true">Update</i></button>
 			{% endif%}
         </form>
-		<br>
 		{% endfor %}
 	{% endif %}
 </div>

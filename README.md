@@ -58,7 +58,7 @@
   (env) $ python3 server.py
   ```
 
-#### Open a new browser window and visit: http://0.0.0.0:5000/
+#### Open a new browser window and visit: localhost:5000
 
 
 
