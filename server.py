@@ -161,21 +161,6 @@ def get_project(project_id):
 							user_id=user_id)
 
 
-@app.route("/attachments")
-def attachments():
-	 
-	user_id = session["user_id"]
-	projects = Project.query.filter_by(user_id=user_id).order_by(Project.project_name.asc()).all()
-	entries = Entry.query.filter_by(user_id=user_id).all()
-	attachments = map(lambda entry: entry.attachment, entries)
- 
-	if user_id:
-		return render_template("attachments.html",
-								attachments=attachments)
-	else:
-		return redirect("/select_project")
-
-
 @app.route("/select_project")
 def select_project():
 	user_id = session["user_id"]
@@ -278,6 +263,21 @@ def add_entry(project_id):
 								user_id=user_id)
 
 
+@app.route("/attachments")
+def attachments():
+	 
+	user_id = session["user_id"]
+	projects = Project.query.filter_by(user_id=user_id).all()
+	entries = Entry.query.filter_by(user_id=user_id).all()
+	attachments = map(lambda entry: entry.attachment, entries)
+ 
+	if user_id:
+		return render_template("attachments.html",
+								attachments=attachments)
+	else:
+		return redirect("/select_project")
+
+
 @app.route("/entry/<int:entry_id>")
 def get_entry(entry_id):
 	"""Search for entries in a project."""
@@ -319,8 +319,9 @@ def delete_note(note_id):
         db.session.commit()
         return redirect(f"/users_dashboard/{user_id}")
     else:
-        redirect(f"/users_dashboard/{user_id}")
+        return redirect(f"/")
 
+    	
 		
 if __name__ == "__main__":
     connect_to_db(app)
