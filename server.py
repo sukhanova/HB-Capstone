@@ -13,6 +13,8 @@ from cloudinary.uploader import upload
 
 app = Flask(__name__)
 
+app.secret_key = "dev"
+# secret_key = app.config['SECRET_KEY']
 app.config.from_pyfile('config.py')
 
 cloudinary.config(
@@ -96,7 +98,7 @@ def users_dashboard(user_id):
 	projects = Project.query.filter_by(user_id=user_id).all()
 	tasks = Task.query.filter_by(user_id=user_id).all()
 	entries = Entry.query.filter_by(user_id=user_id).all()
-	notes= Note.query.filter_by(user_id=user_id).all()
+	notes= Note.query.filter_by(user_id=user_id).order_by(Note.note_id.asc()).all()
 
 	return render_template("users_dashboard.html",
 						   projects=projects,
