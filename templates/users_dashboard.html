@@ -13,13 +13,11 @@
 </div>
 
 <div>
-<div>
 	<br>
 	<br>
 	<a href="/create_project" type="button" class="btn btn-dark">Add a new Project</a>
 	<br>
 	<br>
-</div>
 </div>
 <div>
 	<br>
@@ -35,10 +33,10 @@
 </div>
 	<div>
 		<form id="addNoteForm" action="/add_note" method="POST" enctype="multipart/form-data">
-			<h3>Add a note</h3>
-			<textarea type="text" name="note" id="note" placeholder="Type a note here..." required></textarea>
+			<h3>Note</h3>
+			<textarea name="note" id="note" placeholder="Type a note here..." required></textarea>
 			<br>
-			<input type="submit" class="btn btn-dark">
+			<button type="submit" class="btn btn-info submit"><i class="fa fa-trash fa-1" aria-hidden="true">Add Note</i></button>
 		</form>   
 	</div>
 
