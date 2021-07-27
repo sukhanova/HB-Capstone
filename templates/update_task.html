@@ -14,6 +14,7 @@
 		<div class="form-group row">
 			<label class="col-sm-2 col-form-label">Update Status</label>
             <select type="text" name="status" value="{{ task.status }} or request.form['status']">
+				<option value="" selected disabled hidden>Choose new status</option>
                 <option value="Todo">Todo</option>
                 <option value="In Progress">In Progress</option>
                 <option value="Complete">Complete</option> 

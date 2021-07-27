@@ -267,7 +267,6 @@ def add_entry(project_id):
 
 @app.route("/attachments")
 def attachments():
-	 
 	user_id = session["user_id"]
 	projects = Project.query.filter_by(user_id=user_id).all()
 	entries = Entry.query.filter_by(user_id=user_id).all()
