@@ -24,17 +24,26 @@
 </div>
 <div>
 	<br>
-<a href="/select_project?next_project=add_task" type="button" class="btn btn-primary">Add new task</a>
+<a href="/select_project?next_project=add_task" type="button" class="btn btn-primary ">Add new task</a>
+	<br>
+	<br>
+</div>
+
+<div>
+	<br>
+<a href="/select_project?next_project=add_entry" type="button" class="btn btn-primary">Add an attachment</a>
 	<br>
 	<br>
 </div>
 
 <div class="container">
+	<h4>Project Attachments:</h4>
+	<p>Click on attachemnt to see the details</p>
 	{% if project.entries %}
 	
 	<br>
 	{% for entry in project.entries %}
-	<a href="/entry/{{entry.entry_id}}" type="button" class="btn btn-success">{{entry.title}}</a>
+	<a href="/entry/{{entry.entry_id}}" type="button" class="btn btn-outline-success btn-sm update btn">{{entry.title}}</a>
 	<br>
 	<br>
 	{% endfor %}
