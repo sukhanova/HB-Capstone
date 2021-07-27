@@ -246,6 +246,13 @@ def add_entry(project_id):
 		all_numbers = datetime.now().timestamp()
 		time_stamp = time.ctime(all_numbers)
 		image_url = None
+  
+  		# file upload
+		if request.files:
+			upload = request.files['file']
+			uploaded_file = cloudinary.uploader.upload(upload)
+			image_url = uploaded_file['secure_url']
+   
 
 		entry = Entry(title=title,
 					entry=text,
