@@ -3,14 +3,14 @@
 {% block title %}Projects Page{% endblock %}
 
 {% block body %}
-<br>
 <div>
-	<h3>{{ name }}</h3>
+	<h3>Project: "{{ name }}"".</h3>
 	<br>
-	<h5>{{ description }}</h5>
+	<h3>Project overview: "{{ description }}".</h3>
 	<br>
 </div>
 <div class="container">
+	<h4>Project Tasks:</h4>
 	{% if project.tasks %}
 		{% for task in project.tasks %}
 		<a href="/tasks/{{task.task_id}}" type="button" class="btn btn-light">{{task.description}} : {{task.status}}</a>

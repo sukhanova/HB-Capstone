@@ -13,8 +13,8 @@ from cloudinary.uploader import upload
 
 app = Flask(__name__)
 
-app.secret_key = "dev"
-# secret_key = app.config['SECRET_KEY']
+# app.secret_key = "dev"
+app.secret_key = app.config['SECRET_KEY']
 app.config.from_pyfile('config.py')
 
 cloudinary.config(
@@ -263,8 +263,7 @@ def add_entry(project_id):
 
 		db.session.add(entry)
 		db.session.commit()
-
-		return redirect(f"/users_dashboard/{user_id}")	
+		return redirect(f"/project/{project_id}")
 
 	else:
 		return render_template("create_entry.html",
@@ -329,7 +328,6 @@ def delete_note(note_id):
     else:
         return redirect(f"/")
 
-    	
 		
 if __name__ == "__main__":
     connect_to_db(app)
