@@ -5,10 +5,6 @@
 {% block body %}
 <div>
 	<h3>{{ entry.title }}</h3>
-	<br>
-
-	<h5> {{ entry.time_stamp }}</h5>
-	<br>
 </div>
 <div class="container">
 	<div class="row">
@@ -22,9 +18,15 @@
 	</div>
 	<div class="col-7">
 		{% if entry.entry %}
-			{{ entry.entry }}
+			<p>{{ entry.entry }}<br>
+				<span>{{ entry.time_stamp }}</span>
+			</p>
+			<br>	
 		{% endif %}
 	</div>
 </div>
+<!-- <a href="javascript:history.back()">Go Back</a> -->
+<!-- <button type="button" onclick="javascript:history.back()">Back</button> -->
 </div>
+<a href="javascript:history.back()">Go Back</a>
 {% endblock %}
