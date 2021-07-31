@@ -40,7 +40,6 @@ def homepage():
 @app.route("/registration", methods=["GET", "POST"])
 def registration():
 	"""User registration/create a profile page"""
-
 	if request.method == "POST":
 		fname = request.form["fname"]
 		lname = request.form["lname"]
@@ -84,7 +83,7 @@ def login_process():
 @app.route("/logout")
 def logout():
 	"""User logout."""
-
+ 
 	del session["user_id"]
 	return redirect(f"/")
 
@@ -94,7 +93,7 @@ def logout():
 @app.route("/users_dashboard/<int:user_id>")
 def users_dashboard(user_id):
 	"""This is the user's dashboard."""
-	 
+ 
 	projects = Project.query.filter_by(user_id=user_id).all()
 	tasks = Task.query.filter_by(user_id=user_id).all()
 	entries = Entry.query.filter_by(user_id=user_id).all()
@@ -111,9 +110,8 @@ def users_dashboard(user_id):
 @app.route("/create_project", methods=["GET","POST"])
 def create_project():
 	"""Create a new project."""
-
+ 
 	if request.method == "POST":
-
 		user_id = session["user_id"]
 		project_name = request.form["project_name"]
 		description = request.form["description"]
@@ -140,22 +138,14 @@ def create_project():
 @app.route("/project/<int:project_id>")
 def get_project(project_id):
 	"""Search for a project."""
-	
-	
+ 
 	project = Project.query.get(project_id)
 	name = project.project_name
 	description = project.description
 	entries = project.entries
 	user_id = project.user_id
-	# projects = []
 	
-
 	if user_id: 
-		# for project in projects:
-		# 	project_id = Project.query.get(project_id)
-		# 	name = project.project_name
-		# 	projects.append(name)
-
 		return render_template("project.html",
 							project=project,
 							name=name,
@@ -178,7 +168,7 @@ def select_project():
 @app.route("/add_task/<int:project_id>", methods=["GET", "POST"])
 def add_task(project_id):
 	"""Add task to the project."""
-
+ 
 	project = Project.query.get(project_id)
 
 	if request.method == "POST":
@@ -207,7 +197,7 @@ def add_task(project_id):
 @app.route("/tasks/<int:task_id>")
 def get_task(task_id):
 	"""Search for a task from a project."""
-
+ 
 	task = Task.query.get(task_id)
 	user_id = session["user_id"]
 	if task.user_id != session["user_id"]:
@@ -237,7 +227,7 @@ def update_task(task_id):
 @app.route("/add_entry/<int:project_id>", methods=["GET", "POST"])
 def add_entry(project_id):
 	"""User can add an entry to their project."""
-	
+ 
 	user_id = session["user_id"]
 	
 	if request.method == "POST":
@@ -290,7 +280,6 @@ def get_entry(entry_id):
 	"""Search for entries in a project."""
 
 	entry = Entry.query.get(entry_id)
-	
 	if entry.user_id != session["user_id"]:
 		return redirect("/")
 
@@ -301,7 +290,7 @@ def get_entry(entry_id):
 @app.route("/add_note", methods=["GET", "POST"])
 def add_note():
 	"""User can add short notes."""
-
+ 
 	user_id = session["user_id"]
 
 	if request.method == "POST":
@@ -319,6 +308,7 @@ def add_note():
 @app.route("/delete_note/<int:note_id>", methods=["POST"])
 def delete_note(note_id):
     """Delete note from dashboard"""
+    
     if request.method == "POST":
         user_id = session["user_id"]
         note_to_delete = Note.query.get(note_id)
@@ -327,6 +317,7 @@ def delete_note(note_id):
         return redirect(f"/users_dashboard/{user_id}")
     else:
         return redirect(f"/")
+
 
 		
 if __name__ == "__main__":
