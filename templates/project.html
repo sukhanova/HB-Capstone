@@ -21,20 +21,17 @@
         </form>
 		{% endfor %}
 	{% endif %}
-</div>
-<div>
-	<br>
-<a href="/select_project?next_project=add_task" type="button" class="btn btn-primary ">Add new task</a>
-	<br>
-	<br>
+</div><br>
+<div class="button-container">
+	<span class="input-group-btn input-group-btn-left">
+		<a href="/select_project?next_project=add_task" type="button" class="btn btn-dark ">Add new task</a>
+	</span>
+	
+	<span class="input-group-btn input-group-btn-right">
+	<a href="/select_project?next_project=add_entry" type="button" class="btn btn-dark">Add an attachment</a>
+	</span>
 </div>
 
-<div>
-	<br>
-<a href="/select_project?next_project=add_entry" type="button" class="btn btn-primary">Add an attachment</a>
-	<br>
-	<br>
-</div>
 
 <div class="container">
 	<h4>Project Attachments:</h4>

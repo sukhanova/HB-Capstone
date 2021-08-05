@@ -12,30 +12,18 @@
          Appropriate validation of such targets in advanced model systems, including animals, along with the pharmaceutical development of chemical series, can in turn provide leads for downstream drug discovery efforts.</p>
 </div>
 <br>
-<div>
-	<div>
-		<a href="/create_project" type="button" class="btn btn-dark">Add a new Project</a>
-		<br>
+<div class="container">
+	<div class="button-container">
+		<span class="input-group-btn input-group-btn-left">
+			<a href="/create_project" type="button" class="btn btn-dark">Add a new Project</a>
+		</span>
+		<span>
+		<a href="/select_project?next_project=add_task" type="button" class="btn btn-dark">Add a new Task</a>
+		</span>
+		<span class="input-group-btn input-group-btn-right">
+		<a href="/select_project?next_project=add_entry" type="button" class="btn btn-dark">Add an attachment</a>
+		</span>
 	</div>
-	<div>
-		<br>
-	<a href="/select_project?next_project=add_task" type="button" class="btn btn-dark">Add a new Task</a>
-		<br>
-	</div>
-	<div>
-		<br>
-	<a href="/select_project?next_project=add_entry" type="button" class="btn btn-dark">Add an attachment</a>
-		<br>
-		<br>
-	</div>
-		<div>
-			<form id="addNoteForm" action="/add_note" method="POST" enctype="multipart/form-data">
-				<!-- <h3>Note</h3> -->
-				<textarea name="note" id="note" placeholder="Type a note here..." rows="2" cols="30" required></textarea>
-				<br>
-				<button type="submit" class="btn btn-info submit"><i class="fa fa-trash fa-1" aria-hidden="true">Add Note</i></button>
-			</form>   
-		</div>
 
 		<!-- <div class="notes-section">
 		<br>
@@ -49,19 +37,27 @@
 			</div>
 		</div> -->
 </div>
-	<div class="container notes-section">
-		<br>
-		<p id="note-p">Lab Notes</p>
-			<div id="userNotes">
-				{% if notes %}
-					{% for note in notes%}
-					{{note.note}}
-						<form action="/delete_note/{{note.note_id}}" method="post">
-							<button data-source="{{note.note_id}}" type="submit" class="btn btn-outline-secondary btn-sm remove"><i class="fa fa-trash fa-1" aria-hidden="true">Remove</i></button>
-						</form>
-						<br>
-					{% endfor %}	
-				{% endif %}
-			</div>
+<div class="container notes-section">
+	<h4 id="note-p">Lab Notes</h4>
+	<div>
+		<form id="addNoteForm" action="/add_note" method="POST" enctype="multipart/form-data">
+			<!-- <h3>Note</h3> -->
+			<textarea name="note" id="note" placeholder="Type a note here..." rows="2" cols="50" required></textarea>
+			<br>
+			<button type="submit" class="btn btn-info submit"><i class="fa fa-trash fa-1" aria-hidden="true">Add Note</i></button>
+		</form>   
 	</div>
+	<br>
+		<div id="userNotes">
+			{% if notes %}
+				{% for note in notes%}
+				{{note.note}}
+					<form action="/delete_note/{{note.note_id}}" method="post">
+						<button data-source="{{note.note_id}}" type="submit" class="btn btn-outline-secondary btn-sm remove"><i class="fa fa-trash fa-1" aria-hidden="true">Remove</i></button>
+					</form>
+					<br>
+				{% endfor %}	
+			{% endif %}
+		</div>
+</div>
 {% endblock %}
