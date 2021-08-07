@@ -4,14 +4,14 @@
 
 {% block body %}
 <div>
-	<h3>Project: "{{ name }}"".</h3>
+	<h3>Project: "{{ name }}."</h3>
 	<br>
-	<h3>Project overview: "{{ description }}".</h3>
+	<h3>Project overview: "{{ description }}."</h3>
 	<br>
 </div>
 <div class="container">
-	<h4>Project Tasks:</h4>
-	{% if project.tasks %}
+	<h4><strong>Project Tasks:</strong></h4>
+	<!-- {% if project.tasks %}
 		{% for task in project.tasks %}
 		<a href="/tasks/{{task.task_id}}" type="button" class="btn btn-light">{{task.description}} : {{task.status}}</a>
         <form action="/update_task/{{task.task_id}}" method="GET">
@@ -21,7 +21,41 @@
         </form>
 		{% endfor %}
 	{% endif %}
-</div><br>
+</div><br> -->
+
+<table class="table">
+	<thead>
+		<tr>
+			<th scope="col">Task</th>
+			<th scope="col">Status</th>
+			<th scope="col">Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% if project.tasks %}
+		{% for task in project.tasks %}
+		<tr>
+		<td>
+			<a href="/tasks/{{task.task_id}}" type="button" class="btn btn-light">{{task.description}}</a>
+		</td>
+		<td>
+			{{task.status}}
+		</td>
+		<td>
+			<form action="/update_task/{{task.task_id}}" method="GET">
+				{% if task.status != "Complete" %}
+				<button class="btn btn-outline-secondary btn-sm update btn" data-source="{{task.task_id}}" type="submit"><i class="fa fa-trash fa-1" aria-hidden="true">Update</i></button>
+				{% endif%}
+			</form>
+			{% endfor %}
+		{% endif %}
+		</td>
+		
+        
+		</tr>
+	</tbody>
+</table>
+
 <div class="button-container">
 	<span class="input-group-btn input-group-btn-left">
 		<a href="/select_project?next_project=add_task" type="button" class="btn btn-dark ">Add new task</a>
@@ -34,11 +68,10 @@
 
 
 <div class="container">
-	<h4>Project Attachments:</h4>
+	<h4><strong>Attachments:</strong></h4>
 	<p>Click on attachemnt to see the details</p>
 	{% if project.entries %}
 	
-	<br>
 	{% for entry in project.entries %}
 	<a href="/entry/{{entry.entry_id}}" type="button" class="btn btn-outline-success btn-sm update btn">{{entry.title}}</a>
 	<br>
@@ -46,5 +79,5 @@
 	{% endfor %}
 	{% endif %}
 </div>
-<a href="javascript:history.back()">Go Back</a>
+<a href="javascript:history.back()">&#8592;Go Back</a>
 {% endblock %}

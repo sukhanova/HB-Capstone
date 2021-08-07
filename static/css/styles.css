@@ -1,7 +1,6 @@
 /* Global Layout Set-up */
 *{
     font-family: 'STIX Two Text', serif;
-    color: #354d57;
 }
 
 html {
@@ -11,11 +10,12 @@ html {
 /* Type Selectors ------------------ */
 
 header { 
+	/* background-image: url('../images/Science_calss.jpg');  */
 	background-repeat: no-repeat; 
 	background-size: cover; 
 	background-position: center center;
 	padding: 20px;
-	color:#354d57;
+	background-color: lightgrey;
 }
 
 nav {
@@ -54,7 +54,7 @@ label {
 }
 
 .around-body {
-	padding: 2%;
+	padding: 1.5%;
 }
 
 .banner-text{
@@ -99,7 +99,6 @@ label {
 }
 
 
-
 .notes-section {
 	bottom: 250px;
 	right:0;
@@ -132,3 +131,7 @@ label {
 .input-group-btn-right {
     padding-left: 30px;
   }
+
+  .forms-center {
+	align-items: center;
+}

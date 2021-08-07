@@ -17,20 +17,23 @@ crossorigin="anonymous"></script>
 </head> 
 
 <body>
-  <div id="bg">&nbsp;</div>
+  <div>&nbsp;</div>
     <header>
       <!--Navbar-->
       <nav>
         <div class="welcome-color">
-          <a href="/"><strong>Home</strong></a>
+          <!-- <a href="/"><strong>Home</strong></a> -->
          {% if 'user_id' in session %}
           <div>
             <ul class="header-ul">
               <li>
-                <a href="/users_dashboard/{{session['user_id']}}">Dashboard</a>
+                <a href="/"><strong>Home</strong></a>
               </li>
               <li>
-                <a href="/select_project?next_project=project">Projects</a>
+                <a href="/users_dashboard/{{session['user_id']}}"><strong>Dashboard</strong></a>
+              </li>
+              <li>
+                <a href="/select_project?next_project=project"><strong>Projects</strong></a>
               </li>
 
               <!-- <li>
@@ -38,7 +41,7 @@ crossorigin="anonymous"></script>
               </li> -->
 
               <li>
-                <a href="/logout">Logout</a>
+                <a href="/logout"><strong>Logout</strong></a>
               </li>
           {% endif %}
             </ul>
