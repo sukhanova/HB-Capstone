@@ -7,8 +7,7 @@
 	<h3>{{ entry.title }}</h3>
 </div>
 <div class="container">
-	<div class="row">
-	<div class="col-5">
+	<div>
 		<!-- <img src="{{ entry.attachment }}"> -->
 		<a target="_blank" href="{{entry.attachment}}">
 			<img src="{{ entry.attachment }}" style="width:150px">
@@ -16,10 +15,10 @@
 		<br>
 		<br>
 	</div>
-	<div class="col-7">
+	<div>
 		{% if entry.entry %}
 			<p>{{ entry.entry }}<br>
-				<span>{{ entry.time_stamp }}</span>
+				<span id="entry-span">Uploaded: {{ entry.time_stamp }}</span>
 			</p>
 			<br>	
 		{% endif %}
@@ -28,5 +27,5 @@
 <!-- <a href="javascript:history.back()">Go Back</a> -->
 <!-- <button type="button" onclick="javascript:history.back()">Back</button> -->
 </div>
-<a href="javascript:history.back()">&#8592; Go Back</a>
+<a href="javascript:history.back()">Go Back</a>
 {% endblock %}

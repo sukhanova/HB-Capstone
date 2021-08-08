@@ -3,25 +3,30 @@
 {% block title %}Dashboard{% endblock %}
 
 {% block body %}
-<div>
-	<h3>Exploration and exploitation of Weak Interactions in Biological systems.</h3>
-	<p>The research in our lab is focused upon weak and transient interactions in biological systems. 
-		We use an interdisciplinary approach to discover weak and transient interactions in normal and diseased conditions. 
-		Recently discovered chemical biology tools entail the discovery of chemical entities able to modulate pathways and interactions in biological processes. 
-        Such work can lead to an increase in biological understanding and the identification of novel targets for chemical intervention.
-         Appropriate validation of such targets in advanced model systems, including animals, along with the pharmaceutical development of chemical series, can in turn provide leads for downstream drug discovery efforts.</p>
+<div class="inf-container">
+	<div class="container-sm">
+		<img src="/static/images/Science_calss.jpg" alt="Science image">
+	</div>
+	<div class="container-sm">
+		<h3>Exploration and exploitation of Weak Interactions in Biological systems.</h3>
+		<p>The research in our lab is focused upon weak and transient interactions in biological systems. 
+			We use an interdisciplinary approach to discover weak and transient interactions in normal and diseased conditions. 
+			Recently discovered chemical biology tools entail the discovery of chemical entities able to modulate pathways and interactions in biological processes. 
+			Such work can lead to an increase in biological understanding and the identification of novel targets for chemical intervention.
+			Appropriate validation of such targets in advanced model systems, including animals, along with the pharmaceutical development of chemical series, can in turn provide leads for downstream drug discovery efforts.</p>
+	</div>
 </div>
 <br>
 <div class="container">
 	<div class="button-container">
 		<span class="input-group-btn input-group-btn-left">
-			<a href="/create_project" type="button" class="btn btn-dark">Add a new Project</a>
+			<a href="/create_project" type="button" class="btn btn-primary">Add a new Project</a>
 		</span>
 		<span>
-		<a href="/select_project?next_project=add_task" type="button" class="btn btn-dark">Add a new Task</a>
+		<a href="/select_project?next_project=add_task" type="button" class="btn btn-primary">Add a new Task</a>
 		</span>
 		<span class="input-group-btn input-group-btn-right">
-		<a href="/select_project?next_project=add_entry" type="button" class="btn btn-dark">Add an attachment</a>
+		<a href="/select_project?next_project=add_entry" type="button" class="btn btn-primary">Add an attachment</a>
 		</span>
 	</div>
 
@@ -53,7 +58,7 @@
 				{% for note in notes%}
 				{{note.note}}
 					<form action="/delete_note/{{note.note_id}}" method="post">
-						<button data-source="{{note.note_id}}" type="submit" class="btn btn-outline-secondary btn-sm remove"><i class="fa fa-trash fa-1" aria-hidden="true">Remove</i></button>
+						<button id="remove-btn" data-source="{{note.note_id}}" type="submit" class="btn btn-outline-secondary btn-sm remove"><i class="fa fa-trash fa-1" aria-hidden="true">Remove</i></button>
 					</form>
 					<br>
 				{% endfor %}	

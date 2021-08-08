@@ -21,12 +21,19 @@ crossorigin="anonymous"></script>
     <header>
       <!--Navbar-->
       <nav>
-        <div class="welcome-color">
+        <div class="welcome-page">
           <!-- <a href="/"><strong>Home</strong></a> -->
          {% if 'user_id' in session %}
+         <div>
+           <h1>
+             <a href="/" id="top">
+            Mishra's Lab
+            </a>
+           </h1>
+         </div>
           <div>
             <ul class="header-ul">
-              <li>
+              <li class="nav-item">
                 <a href="/"><strong>Home</strong></a>
               </li>
               <li>
@@ -49,8 +56,6 @@ crossorigin="anonymous"></script>
         </div>
       </nav>
       <div class="banner-text">
-        <h1><strong>GITAM University AOPT Mishra's Lab</strong></h1>
-        <!-- <br> -->
         <h5 class="banner-small"><strong>Tasks Tracking Dashboard</strong></h5>
       </div>
     </header>

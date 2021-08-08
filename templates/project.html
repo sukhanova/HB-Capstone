@@ -4,9 +4,9 @@
 
 {% block body %}
 <div>
-	<h3>Project: "{{ name }}."</h3>
+	<h3>Project: "{{ name }}"</h3>
 	<br>
-	<h3>Project overview: "{{ description }}."</h3>
+	<h3>Project overview: "{{ description }}"</h3>
 	<br>
 </div>
 <div class="container">
@@ -69,9 +69,8 @@
 
 <div class="container">
 	<h4><strong>Attachments:</strong></h4>
-	<p>Click on attachemnt to see the details</p>
+	<p><italic>Click on attachemnt to see the details</italic></p>
 	{% if project.entries %}
-	
 	{% for entry in project.entries %}
 	<a href="/entry/{{entry.entry_id}}" type="button" class="btn btn-outline-success btn-sm update btn">{{entry.title}}</a>
 	<br>

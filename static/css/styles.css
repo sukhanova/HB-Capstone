@@ -16,7 +16,7 @@ header {
 	background-position: center center;
 	padding: 20px;
 	background-color: lightgrey;
-}
+} */
 
 nav {
 	text-align: left;
@@ -35,7 +35,7 @@ nav li {
 }
 
 
-h3, h5 {
+h3{
 	font-family: 'STIX Two Text', serif;
 	font-weight: 900;
 }
@@ -43,13 +43,13 @@ h3, h5 {
 label {
 	font-family: 'STIX Two Text', serif;
 	font-weight: bolder;
-}
+} 
 
 /* ID Selectors -------------------- */
 
 
 /* Class Selectors ----------------- */
-.welcome-color a {
+.welcome-page a {
 	color: #354d57;
 }
 
@@ -60,24 +60,18 @@ label {
 .banner-text{
 	font-family: 'STIX Two Text', serif;
 	text-align: center;
-	color: #354d57;
 }
 
 .header-ul {
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
-	color: #354d57;
 }
 
 .header-ul li {
 	display: inline;
-	color: #354d57;
 }
 
-.header-ul a {
-	color: #354d57;
-}
 
 .button-divs {
 	text-align: center;
@@ -111,7 +105,6 @@ label {
 	align-items: center;
 	font-family: "Comic Sans MS", cursive, sans-serif;
 	font-size: 12pt;
-	font-weight: bolder;
 	margin: 5px;
     margin-top: 20px;
 }
@@ -134,4 +127,17 @@ label {
 
   .forms-center {
 	align-items: center;
+}
+
+#entry-span{
+	font-size: small;
+	font-style: italic;
+}
+
+.inf-container {
+    display:flex;
+}
+
+p {
+	line-height: 1.75em;
 }

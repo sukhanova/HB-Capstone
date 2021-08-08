@@ -6,14 +6,11 @@
 <br>
 <br>
 <div class="container">
-  <div class="row justify-content-start">
+  <div>
   	{% if attachments %}
 	{% for attachment in attachments %}
-    <!-- <div class="col-4">
-    	<img src="{{ attachment }}">
-	</div> -->
 	<a target="_blank" href="{{ attachment }}">
-		<img src="{{attachment }}" style="width:150px">
+		<img src="{{attachment }}" class="img-thumbnail">
 	  </a>
 	{% endfor %}
 	{% endif %}	

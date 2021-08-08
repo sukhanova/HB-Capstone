@@ -124,7 +124,7 @@ def create_project():
 
 		project_id = project.project_id
 
-		return redirect(f"/users_dashboard/{user_id}") 
+		return redirect(f"/users_dashboard/{user_id}")
 
 	else:
 		return render_template("create_project.html")
@@ -133,6 +133,7 @@ def create_project():
 								
 		user_id = session["user_id"]
 		return redirect(f"/create_project/{project_id}")
+
 
 
 @app.route("/project/<int:project_id>")
