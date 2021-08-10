@@ -1,6 +1,6 @@
 /* Global Layout Set-up */
-*{
-    font-family: 'STIX Two Text', serif;
+* {
+	font-family: 'STIX Two Text', serif;
 }
 
 html {
@@ -10,12 +10,12 @@ html {
 /* Type Selectors ------------------ */
 
 header { 
-	/* background-image: url('../images/Science_calss.jpg');  */
+	background-image: url('../images/laboratory-design.jpeg'); 
 	background-repeat: no-repeat; 
 	background-size: cover; 
 	background-position: center center;
 	padding: 20px;
-	background-color: lightgrey;
+	background-color: black;
 } */
 
 nav {
@@ -34,10 +34,13 @@ nav li {
 	padding: 5px 5px;
 }
 
-
 h3{
 	font-family: 'STIX Two Text', serif;
 	font-weight: 900;
+}
+
+p {
+	line-height: 1.75em;
 }
 
 label {
@@ -47,10 +50,14 @@ label {
 
 /* ID Selectors -------------------- */
 
+#entry-span{
+	font-size: small;
+	font-style: italic;
+}
 
 /* Class Selectors ----------------- */
 .welcome-page a {
-	color: #354d57;
+	color: black;
 }
 
 .around-body {
@@ -77,12 +84,10 @@ label {
 	display: inline;
 }
 
-
 .button-divs {
 	text-align: center;
 	color: black;
 }
-
 
 .login-form {
 	align-items: left;
@@ -97,14 +102,12 @@ label {
 	align-items: center;
 }
 
-
 .notes-section {
 	bottom: 250px;
 	right:0;
 	font-size: 18pt;
 	font-weight: bolder;
 } 
-
  
 .container {
 	align-items: center;
@@ -113,7 +116,6 @@ label {
 	margin: 5px;
     margin-top: 20px;
 }
-
 
 .button-container {
     margin-top: 0;
@@ -134,15 +136,11 @@ label {
 	align-items: center;
 }
 
-#entry-span{
-	font-size: small;
-	font-style: italic;
-}
-
 .inf-container {
     display:flex;
 }
 
-p {
-	line-height: 1.75em;
+.container-sm{
+	padding-right:0;
+	margin-left: auto;
 }
