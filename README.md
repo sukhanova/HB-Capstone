@@ -3,7 +3,7 @@
 
 ### Hackbright Academy Full-Stack Software Engineering Program
 
-[Description goes here....]
+Task Tracking Dashboard is a full stack web app, built end to end from scratch that allows users to add project, tasks, upload attachments to related to the projects and add a quick note/reminder to themselves.
 
 ###  Demo
 
