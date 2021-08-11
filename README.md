@@ -65,13 +65,17 @@ $ createdb task_tracking
   (env) $ python3 model.py
   ```
 
-#### Run the server on the backend
+#### Start the web server
   ```
   (env) $ python3 server.py
   ```
 
-#### Open a new browser window and visit: localhost:5000
-
+Server will start on port 5000 by default (visit localhost:5000).
+You can change this in `server.py` by changing the following line to this: 
+```python
+if __name__ == "__main__":
+    app.run(debug=True, port=<desired port>)
+```
 
 
 
