@@ -32,6 +32,9 @@ nav ul {
 nav li {
 	display: inline-block;
 	padding: 5px 5px;
+	font-family: 'Open Sans', sans-serif;
+	font-size: large;
+	font-weight: 700;
 }
 
 h3{
@@ -47,6 +50,10 @@ label {
 	font-family: 'STIX Two Text', serif;
 	font-weight: bolder;
 } 
+
+li:hover {
+    cursor: pointer;
+}
 
 /* ID Selectors -------------------- */
 
@@ -143,4 +150,9 @@ label {
 .container-sm{
 	padding-right:0;
 	margin-left: auto;
+}
+
+.btn-container{
+	padding-left: 12%;
+	margin-left: 5%;
 }

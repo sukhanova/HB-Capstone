@@ -8,21 +8,25 @@
 		<h3>Task Details</h3><br>
 		<br>
 		<div class="form-group row">
-			<label class="col-sm-2 col-form-label">Task Description</label>
+			<label class="col-sm-1 form-label">Task Description</label>
 			<textarea type="text" name="description" required rows="2" cols="50"></textarea>
 		</div>
 		<div class="form-group row">
-			<label class="col-sm-2 col-form-label">Status</label>
+			<label class="col-sm-1 form-label">Status</label>
 			<!-- <input type="text" name="status"><br> -->
             <select type="text" name="status" class="form-select">
-				<option value="selected disabled hidden">Choose status</option>
+				<option value="selected disabled hidden">Choose a status</option>
                 <option value="Todo">Todo</option>
                 <option value="In Progress">In Progress</option>
                 <option value="Complete">Complete</option> 
             </select>
 		</div>
-		<input type="submit" class="btn btn-dark">
+		<div class="btn-container">
+			<input type="submit" class="btn btn-secondary submit"><i class="fa fa-trash fa-1" aria-hidden="true"></i>
+		</div>
+		
 	</form>
 </div>
+<br>
 <a href="javascript:history.back()">&#8592; Go Back</a>
 {% endblock %}

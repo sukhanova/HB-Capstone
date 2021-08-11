@@ -8,16 +8,18 @@
 		<h3>Create New Project</h3><br>
 		<br>
 		<div class="form-group row">
-			<label class="col-sm-2 col-form-label">Project Title</label>
+			<label class="col-sm-1 form-label">Project Title</label>
 			<input type="text" name="project_name" placeholder="Project title" required><br>
 		</div>
 		<div class="form-group row">
-			<label class="col-sm-2 col-form-label">Description</label>
+			<label class="col-sm-1 form-label">Description</label>
 			<textarea rows="4" cols="50" name="description" placeholder="Project description" required></textarea><br>
 		</div>
-		<br>
-		<input type="submit" class="btn btn-dark">
+		<div class="btn-container">
+		<input type="submit" class="btn btn-secondary submit"><i class="fa fa-trash fa-1" aria-hidden="true"></i>
+		</div>
 	</form>
 </div>
+<br>
 <a href="javascript:history.back()">&#8592; Go Back</a>
 {% endblock %}

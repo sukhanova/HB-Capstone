@@ -4,13 +4,13 @@
 
 {% block body %}
 <div>
-	<h3>Project: "{{ name }}"</h3>
+	<h3 class="text-center">Project: "{{ name }}"</h3>
 	<br>
-	<h3>Project overview: "{{ description }}"</h3>
+	<h3 class="text-center">Project overview: "{{ description }}"</h3>
 	<br>
 </div>
 <div class="container">
-	<h4><strong>Project Tasks:</strong></h4>
+	<h4 class="text-center"><strong>Project Tasks:</strong></h4>
 	<!-- {% if project.tasks %}
 		{% for task in project.tasks %}
 		<a href="/tasks/{{task.task_id}}" type="button" class="btn btn-light">{{task.description}} : {{task.status}}</a>
@@ -58,18 +58,16 @@
 
 <div class="button-container">
 	<span class="input-group-btn input-group-btn-left">
-		<a href="/select_project?next_project=add_task" type="button" class="btn btn-dark ">Add new task</a>
+		<a href="/select_project?next_project=add_task" type="button" class="btn btn-primary">Add new task</a>
 	</span>
 	
 	<span class="input-group-btn input-group-btn-right">
-	<a href="/select_project?next_project=add_entry" type="button" class="btn btn-dark">Add an attachment</a>
+	<a href="/select_project?next_project=add_entry" type="button" class="btn btn-primary">Add an attachment</a>
 	</span>
 </div>
-
-
 <div class="container">
 	<h4><strong>Attachments:</strong></h4>
-	<p><italic>Click on attachemnt to see the details</italic></p>
+	<p>Click on attachment to see the details</p>
 	{% if project.entries %}
 	{% for entry in project.entries %}
 	<a href="/entry/{{entry.entry_id}}" type="button" class="btn btn-outline-success btn-sm update btn">{{entry.title}}</a>

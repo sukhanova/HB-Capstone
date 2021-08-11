@@ -32,14 +32,14 @@ crossorigin="anonymous"></script>
            </h1>
          </div>
           <div>
-            <ul class="header-ul">
-              <li class="nav-item">
+            <ul class="header-ul list-inline">
+              <li class="nav-item list-inline-item">
                 <a href="/"><strong>Home</strong></a>
               </li>
-              <li>
+              <li class="list-inline-item">
                 <a href="/users_dashboard/{{session['user_id']}}"><strong>Dashboard</strong></a>
               </li>
-              <li>
+              <li class="list-inline-item">
                 <a href="/select_project?next_project=project"><strong>Projects</strong></a>
               </li>
 
@@ -47,7 +47,7 @@ crossorigin="anonymous"></script>
                 <a href="/attachments">Project Attachments</a>
               </li> -->
 
-              <li>
+              <li class="list-inline-item">
                 <a href="/logout"><strong>Logout</strong></a>
               </li>
           {% endif %}
